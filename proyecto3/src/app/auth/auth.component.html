@@ -1,0 +1,17 @@
+<section id="container">
+  <div *ngIf="isLogged" class="card">
+    <h2>Inicia Sesión</h2>
+    <input [(ngModel)]="auth.email" type="email" placeholder="Correo">
+    <input [(ngModel)]="auth.password" type="password" placeholder="Contraseña">
+    <button (click)="login()">Entrar</button>
+    <p>¿No tienes una cuenta? <span (click)="isLogged=false" >Click aquí</span></p>
+  </div>
+  <div *ngIf="!isLogged" class="card">
+    <h2>Registrate</h2>
+    <input [(ngModel)]="auth.username" type="text" placeholder="Usuario">
+    <input [(ngModel)]="auth.email" type="email" placeholder="Correo"> 
+    <input [(ngModel)]="auth.password" type="password" placeholder="Contraseña">
+    <button (click)="signup()">Crear</button>
+    <p>Ya tienes cuenta? <span (click)="isLogged=true" >Click aquí</span></p>
+  </div>
+</section>

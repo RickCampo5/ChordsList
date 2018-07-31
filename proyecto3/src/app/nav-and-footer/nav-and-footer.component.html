@@ -1,0 +1,38 @@
+<nav>
+  <a [routerLink]="['']">
+    <img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1533054058/ChordList/CList.png" alt="Music Chord List">
+  </a>
+  <div>
+    <input type="text" placeholder="¿Qué canción buscas?">
+    <button>Buscar</button>
+  </div>
+  <ul>
+    <li>
+      <a [routerLink]="['profile']">Perfil</a>
+    </li>
+    <li>
+      <a href="">Listas</a>
+    </li>
+    <li>
+     <a href="">Acordes</a>
+    </li>
+    <li *ngIf="user">
+      <a href="#" (click)="logout()">Log Out</a>
+    </li>
+  </ul>
+</nav>
+
+<footer>
+  <div class="weDo">
+  <h5>ChordLsit</h5>
+  <p>
+    Esta pagina esta diseñada para musicos y quienes quieren aprender a tocar. Aqui puedes subir tu repositorio de canciones y compartirlo con tu banda para facilitar la comunicacion y que todos tengan las mismas notas
+  </p>
+  </div>
+  <div>
+    <h5>Contacto</h5>
+    <ul>
+      <li>Ricardo Campos</li>
+    </ul>
+  </div>
+</footer>

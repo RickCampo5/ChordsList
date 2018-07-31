@@ -1,0 +1,23 @@
+input{
+  width: 200px;
+  height: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+button{
+  background-color: #4f5bff;
+  margin-top: 20px;
+  width: 120px;
+  height: 30px;
+  font-size: 1em;
+  color: #fff
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}

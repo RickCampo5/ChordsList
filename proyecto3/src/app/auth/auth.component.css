@@ -1,0 +1,38 @@
+#container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4f5bff;
+  width: 100vw;
+  height: 550px;
+  margin-top: 20px;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #9c33ff; */
+  width: 500px;
+  height: 300px;
+  border-radius: 50px;
+  color: #fff;
+}
+
+input{
+  width: 200px;
+  height: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+button{
+  background-color: #4f5bff;
+  margin-top: 20px;
+  width: 100px;
+  height: 30px;
+  font-size: 1em;
+  color: #fff
+}
