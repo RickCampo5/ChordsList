@@ -11,7 +11,7 @@ export class AuthComponent implements OnInit {
 
   isLogged = true
   auth = {}
-  user = null
+  user: any = {}
 
   constructor(
     private authService: AuthService,
@@ -29,14 +29,16 @@ export class AuthComponent implements OnInit {
     this.authService.login(this.auth)
     .subscribe(user=>{
       this.user = user
+      const userId = this.user._id
       localStorage.setItem('user', JSON.stringify(user))
-      this.router.navigate(['profile'])
+      localStorage.setItem('userId', JSON.stringify(userId))
+      this.router.navigate(['profile', this.user._id])
     })
   }
 
   ngOnInit() {
     if(localStorage.getItem('user')){
-      this.router.navigate(['profile'])
+      this.router.navigate(['profile', this.user._id])
     }
   }
 

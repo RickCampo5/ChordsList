@@ -14,7 +14,7 @@ export class NavAndFooterComponent implements OnInit {
     private auth: AuthService
   ) { }
 
-  user = localStorage.getItem('user');
+  user = JSON.parse(localStorage.getItem('userId'));
 
   logout(){
     this.auth.logout();

@@ -3,7 +3,12 @@ const Schema = require('mongoose').Schema
 
 const listsSchema = new require ('mongoose').Schema({
   fecha: Date,
-  list: String
+  list: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Chords"
+    }
+  ]
 },{
   timestamps:{
     createdAt: 'created_at',

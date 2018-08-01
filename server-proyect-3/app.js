@@ -35,7 +35,7 @@ app.use(session({
     mongooseConnection:mongoose.connection,
     ttl:24*60*60
   }),
-  secret: 'bliss',
+  secret: 'Rick',
   saveUninitialized: true,
   resave: false,
   cookie : { httpOnly: true, maxAge: 2419200000 }
@@ -74,11 +74,11 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
-// const chords = require('./routes/chords')
-// const lists = require('./routes/lists')
+const chords = require('./routes/chords')
+const lists = require('./routes/lists')
 const auth = require('./routes/auth') 
-// app.use('/chords', chords)
-// app.use('/lists', lists)
+app.use('/chords', chords)
+app.use('/lists', lists)
 app.use('/', auth) 
 app.use('/', index);
 

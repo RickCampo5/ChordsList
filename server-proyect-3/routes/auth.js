@@ -1,11 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/User');
-// const Profile = require('../models/Profile');
-// const Product = require('../models/Product');
-//const bcrypt = require('bcrypt');
 const passport = require('passport');
-//const sendWelcomeMail = require('../helpers/mailer').sendWelcomeMail;
-//const sendTemplate = require('../helpers/mailer').sendTemplate;
+
 
 //multer config
 const multer = require('multer');
@@ -36,6 +32,7 @@ router.get('/logout', (req,res,next)=>{
 
 
 router.post('/login', passport.authenticate('local'), (req,res,next)=>{
+    req.app.locals.user = req.user
     res.json(req.user)
 });
 

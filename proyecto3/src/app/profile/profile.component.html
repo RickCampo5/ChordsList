@@ -2,9 +2,9 @@
   <article>
     <h2>Mis Canciones</h2>
     <ul>
-      <li>lol</li>
+      <li *ngFor="let chord of chords">{{chord.title}}</li>
     </ul>
-    <button>Crear Canción</button>
+    <button (click)="crear()" >Crear Canción</button>
   </article>
   <article>
     <h2>Listas</h2>

@@ -5,7 +5,11 @@ const chordsSchema = new require ('mongoose').Schema({
   title: String,
   key: String,
   author: String,
-  partiture: String
+  partiture: String,
+  user:{
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }
 },{
   timestamps:{
     createdAt: 'created_at',

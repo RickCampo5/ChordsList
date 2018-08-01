@@ -12,7 +12,8 @@ import { AuthComponent } from './auth/auth.component';
 
 //Routes
 import { routes } from './routes';
-import { ProfileComponent } from './profile/profile.component'
+import { ProfileComponent } from './profile/profile.component';
+import { NewSongComponent } from './new-song/new-song.component'
 
 //Services
 
@@ -22,7 +23,8 @@ import { ProfileComponent } from './profile/profile.component'
     AppComponent,
     NavAndFooterComponent,
     AuthComponent,
-    ProfileComponent
+    ProfileComponent,
+    NewSongComponent
   ],
   imports: [
     BrowserModule,

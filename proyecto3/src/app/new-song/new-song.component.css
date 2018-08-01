@@ -1,0 +1,38 @@
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 500px;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+
+input{
+    width: 200px;
+    height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 1em;
+  }
+
+  textarea{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 1em;
+    width: 500px;
+    height: 300px;
+  }
+  
+  button{
+    background-color: #4f5bff;
+    margin-top: 20px;
+    width: 200px;
+    height: 30px;
+    font-size: 1em;
+    color: #fff
+  }

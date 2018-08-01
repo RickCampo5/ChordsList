@@ -1,0 +1,9 @@
+<section>
+  <form > 
+    <input placeholder="Titulo de la canción" type="text" name="title" [(ngModel)]="chords.title">
+    <input placeholder="Tono: Dm, F..." type="text" name="key" [(ngModel)]="chords.key" >
+    <input placeholder="Autor" type="text" name="author" [(ngModel)]="chords.author" >
+    <textarea placeholder="Acordes" [(ngModel)]="chords.partiture" name="partiture"></textarea>
+    <button (click)="saveSong()" >Guardar Canción</button>
+  </form>
+</section>

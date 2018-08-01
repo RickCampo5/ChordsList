@@ -1,5 +1,8 @@
 <nav>
-  <a [routerLink]="['']">
+  <a *ngIf="!user" [routerLink]="['login']">
+    <img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1533054058/ChordList/CList.png" alt="Music Chord List">
+  </a>
+  <a *ngIf="user" [routerLink]="['profile', user]">
     <img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1533054058/ChordList/CList.png" alt="Music Chord List">
   </a>
   <div>
@@ -8,7 +11,8 @@
   </div>
   <ul>
     <li>
-      <a [routerLink]="['profile']">Perfil</a>
+      <a *ngIf="user" [routerLink]="['profile', user]">Perfil</a>
+      <a *ngIf="!user" [routerLink]="['login']" >Perfil</a>
     </li>
     <li>
       <a href="">Listas</a>
@@ -36,3 +40,4 @@
     </ul>
   </div>
 </footer>
+<router-outlet></router-outlet>
