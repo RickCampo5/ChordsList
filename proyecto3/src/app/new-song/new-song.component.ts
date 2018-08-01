@@ -10,7 +10,7 @@ import { Router } from '@angular/router'
 export class NewSongComponent implements OnInit {
 
   chords: any = {}
-  userId = localStorage.getItem('userId')
+  userId = JSON.parse(localStorage.getItem('userId'))
 
   constructor(
     private chordsService: ChordsService,
@@ -18,9 +18,10 @@ export class NewSongComponent implements OnInit {
   ) { }
 
   saveSong(){
+    this.chords.partiture = this.chords.partiture.replace(/\n/g, '<br>', )
     this.chordsService.createChord(this.chords)
     .subscribe(song=>{
-      this.router.navigate(['profile', JSON.parse(this.userId)])
+      this.router.navigate(['profile', this.userId])
     })
   }
 

@@ -3,6 +3,10 @@ const Schema = require('mongoose').Schema
 
 const listsSchema = new require ('mongoose').Schema({
   fecha: Date,
+  firstTitle: String,
+  SecondTitle: String,
+  message: String,
+  keys:[Array],
   list: [
     {
       type: Schema.Types.ObjectId,

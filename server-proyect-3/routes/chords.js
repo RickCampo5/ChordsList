@@ -22,8 +22,10 @@ router.post('/', (req,res,next)=>{
     req.body.user = req.app.locals.user
     Chords.create(req.body)
     .then(chord=>{
-        User.findByIdAndUpdate(req.app.locals.user.id, {$push:{chords:chord.id}})
-        return res.status(200).json(chord)        
+       return User.findByIdAndUpdate(req.app.locals.user.id, {$push:{chords:chord._id}})
+       .then(user=>{
+        return res.status(200).json(user)  
+       })       
     })
 })
 
@@ -37,7 +39,7 @@ router.get('/one/:id', (req,res,next)=>{
 })
 
 router.put("/:id", (req, res, next) => {
-  Phone.findByIdAndUpdate(req.params.id, req.body, { new: true })
+  Chords.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(chord => {
       return res.status(202).json(chord);
     })
@@ -47,9 +49,12 @@ router.put("/:id", (req, res, next) => {
 });
 
 router.delete('/:id', (req, res, next) => {
-    Phone.findByIdAndRemove(req.params.id)
+    Chords.findByIdAndRemove(req.params.id)
         .then(chord => {
-            res.status(200).json(chord)
+            User.findByIdAndUpdate(req.app.locals.user.id, {$pull:{chords:chord._id}})
+            .then(user=>{
+                res.status(200).json(user)
+            })
         })
         .catch(e=>{
             res.status(500).json({message:"algo falló"})

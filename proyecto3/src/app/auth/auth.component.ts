@@ -22,6 +22,7 @@ export class AuthComponent implements OnInit {
     this.authService.signup(this.auth)
     .subscribe(user=>{
       this.user = user
+      this.router.navigate(['profile', this.user._id])
     })
   }
 

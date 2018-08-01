@@ -2,7 +2,7 @@
   <article>
     <h2>Mis Canciones</h2>
     <ul>
-      <li *ngFor="let chord of chords">{{chord.title}}</li>
+      <li *ngFor="let chord of chords"><a [routerLink]="['/song', chord._id]">{{chord.title}}</a></li>
     </ul>
     <button (click)="crear()" >Crear Canción</button>
   </article>
