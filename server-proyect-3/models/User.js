@@ -15,6 +15,12 @@ const userSchema = new require('mongoose').Schema({
           type: Schema.Types.ObjectId,
           ref: 'Lists'
       }
+  ],
+  myLists: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: 'Lists'
+    }
   ]
 },{
     timestamps:{

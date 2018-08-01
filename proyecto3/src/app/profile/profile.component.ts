@@ -19,8 +19,12 @@ export class ProfileComponent implements OnInit {
 
   chords = []
 
-  crear(){
+  createChords(){
     this.router.navigate(['createChords'])
+  }
+
+  createList(){
+    this.router.navigate(['createList'])
   }
 
   ngOnInit() {

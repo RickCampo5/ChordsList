@@ -15,7 +15,8 @@ import { routes } from './routes';
 import { ProfileComponent } from './profile/profile.component';
 import { NewSongComponent } from './new-song/new-song.component';
 import { SongDetailComponent } from './song-detail/song-detail.component';
-import { EditSongComponent } from './edit-song/edit-song.component'
+import { EditSongComponent } from './edit-song/edit-song.component';
+import { NewListComponent } from './new-list/new-list.component'
 
 //Services
 
@@ -28,7 +29,8 @@ import { EditSongComponent } from './edit-song/edit-song.component'
     ProfileComponent,
     NewSongComponent,
     SongDetailComponent,
-    EditSongComponent
+    EditSongComponent,
+    NewListComponent
   ],
   imports: [
     BrowserModule,

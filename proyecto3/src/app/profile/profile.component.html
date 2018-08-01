@@ -4,7 +4,7 @@
     <ul>
       <li *ngFor="let chord of chords"><a [routerLink]="['/song', chord._id]">{{chord.title}}</a></li>
     </ul>
-    <button (click)="crear()" >Crear Canción</button>
+    <button (click)="createChords()" >Crear Canción</button>
   </article>
   <article>
     <h2>Listas</h2>
@@ -17,7 +17,7 @@
     <ul>
       <li>Lol</li>
     </ul>
-    <button>Crear Lista</button>
+    <button (click)="createList()">Crear Lista</button>
   </article>
 </section>
 

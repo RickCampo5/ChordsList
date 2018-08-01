@@ -2,17 +2,17 @@ const passportLocalMongoose = require('passport-local-mongoose')
 const Schema = require('mongoose').Schema
 
 const listsSchema = new require ('mongoose').Schema({
-  fecha: Date,
+  date: Date,
   firstTitle: String,
-  SecondTitle: String,
+  secondTitle: String,
   message: String,
   keys:[Array],
-  list: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Chords"
-    }
-  ]
+  chords: [Object],
+  user: {
+    type: Schema.Types.ObjectId,
+    ref:'User'
+  }
+
 },{
   timestamps:{
     createdAt: 'created_at',

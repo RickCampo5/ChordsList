@@ -1,0 +1,10 @@
+<section>
+  <h2>Crea tu lista</h2>
+  <form >
+    <input name="date" [(ngModel)]="list.date" type="date">
+    <input name="firstTitle" placeholder="Alabanza, Final, Adoración" [(ngModel)]="list.firstTitle" type="text">
+    <input name="secondTitle" placeholder="Alabanza, Final, Adoración" [(ngModel)]="list.secondTitle" type="text">
+    <textarea name="message" placeholder="Detalle de cada canción: Comienza desde el coro..." [(ngModel)]="list.message" cols="30" rows="10"></textarea>
+    <button>Guardar y Agregar Canciones</button>
+  </form>
+</section>
