@@ -1,10 +1,23 @@
 <section>
-  <h2>Crea tu lista</h2>
-  <form >
-    <input name="date" [(ngModel)]="list.date" type="date">
-    <input name="firstTitle" placeholder="Alabanza, Final, Adoración" [(ngModel)]="list.firstTitle" type="text">
-    <input name="secondTitle" placeholder="Alabanza, Final, Adoración" [(ngModel)]="list.secondTitle" type="text">
-    <textarea name="message" placeholder="Detalle de cada canción: Comienza desde el coro..." [(ngModel)]="list.message" cols="30" rows="10"></textarea>
-    <button>Guardar y Agregar Canciones</button>
-  </form>
+  <article>
+    <h2>Crea tu lista</h2>
+    <form >
+      <input name="date" [(ngModel)]="list.date" type="date">
+      <!-- <input name="firstTitle" placeholder="Alabanza, Final, Adoración" [(ngModel)]="list.firstTitle" type="text">
+      <input name="secondTitle" placeholder="Alabanza, Final, Adoración" [(ngModel)]="list.secondTitle" type="text"> -->
+      <div id="songs">
+      <h3>Canciones</h3>
+      </div>
+      <textarea name="message" placeholder="Detalle de cada canción: Comienza desde el coro..." [(ngModel)]="list.message" cols="30" rows="10"></textarea>
+      <button (click)="saveList()" class="save">Guardar</button>
+    </form>
+  </article>
+  <article>
+    <h2>Buscador</h2>
+    <input class="input" type="text">
+    <ul>
+      <li *ngFor="let chord of chords">{{chord.title}} - {{chord.author}} <button (click)="add(chord)">+</button> </li> 
+    </ul>
+  </article>
 </section>
+

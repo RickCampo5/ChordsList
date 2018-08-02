@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service'
 import { ChordsService } from '../services/chords.service'
+import {ListService} from '../services/list.service'
 import { Router } from '@angular/router'
 
 
@@ -14,10 +15,13 @@ export class ProfileComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private router: Router,
-    private chordsService: ChordsService
+    private chordsService: ChordsService,
+    private listService: ListService
   ) { }
 
   chords = []
+  lists = []
+  userId = JSON.parse(localStorage.getItem('userId'))
 
   createChords(){
     this.router.navigate(['createChords'])
@@ -32,7 +36,12 @@ export class ProfileComponent implements OnInit {
       return this.router.navigate(['login'])
     }
 
-    this.chordsService.getOneUserChords(JSON.parse(localStorage.getItem('userId')))
+    this.listService.getAllMyLists()
+    .subscribe(lists=>{
+      this.lists = lists
+    })
+
+    this.chordsService.getOneUserChords(this.userId)
     .subscribe(chords=>{
       this.chords = chords
     })

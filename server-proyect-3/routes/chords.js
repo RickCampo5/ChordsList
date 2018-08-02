@@ -2,6 +2,7 @@ const router = require('express').Router();
 const Chords = require('../models/Chords')
 const User = require('../models/User')
 
+//get all chords
 router.get('/',(req,res,next)=>{
     Chords.find()
     .then(chords=>{
@@ -10,6 +11,7 @@ router.get('/',(req,res,next)=>{
     .catch(e=>next(e))
 })
 
+//Get al user chords
 router.get('/:userid',(req,res,next)=>{
     Chords.find({user:req.params.userid})
     .then(chords=>{
@@ -18,6 +20,7 @@ router.get('/:userid',(req,res,next)=>{
     .catch(e=>next(e))
 })
 
+//Create new song
 router.post('/', (req,res,next)=>{
     req.body.user = req.app.locals.user
     Chords.create(req.body)
@@ -29,6 +32,7 @@ router.post('/', (req,res,next)=>{
     })
 })
 
+//Get one Song
 router.get('/one/:id', (req,res,next)=>{
     Chords.findById(req.params.id)
     .then(chord=>{
@@ -38,6 +42,16 @@ router.get('/one/:id', (req,res,next)=>{
     .catch(e=>next(e))
 })
 
+//Search song
+router.post('/search/songs',(req,res,next)=>{
+    Chords.find({ $or:  [ { title: { $regex: req.body.regex, $options: 'i' } }, { author: { $regex: req.body.regex, $options: 'i' } } ] })
+    .then(chords=>{
+        return res.status(200).json(chords)
+    })
+    .catch(e=>next(e))
+})
+
+//Edit song 
 router.put("/:id", (req, res, next) => {
   Chords.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(chord => {
@@ -48,6 +62,7 @@ router.put("/:id", (req, res, next) => {
     });
 });
 
+//Delete song
 router.delete('/:id', (req, res, next) => {
     Chords.findByIdAndRemove(req.params.id)
         .then(chord => {

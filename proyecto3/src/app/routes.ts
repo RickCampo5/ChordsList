@@ -7,7 +7,7 @@ import {NavAndFooterComponent} from '../app/nav-and-footer/nav-and-footer.compon
 import {ProfileComponent} from '../app/profile/profile.component'
 import { NewSongComponent } from './new-song/new-song.component';
 import {SongDetailComponent} from './song-detail/song-detail.component'
-import { EditSongComponent } from './edit-song/edit-song.component'
+import {SearchComponent} from './search/search.component'
 import {NewListComponent} from './new-list/new-list.component'
 
 export const routes: Routes = [
@@ -16,6 +16,6 @@ export const routes: Routes = [
   {path:'profile/:id', component:ProfileComponent},
   {path: 'createChords', component:NewSongComponent},
   {path:'song/:id', component:SongDetailComponent},
-  {path:'edit/:id', component:EditSongComponent},
+  {path:'chords/:reg', component:SearchComponent},
   {path:'createList', component:NewListComponent}
 ]

@@ -1,0 +1,7 @@
+<section>
+  <ul>
+    <li *ngFor="let chord of chords">
+      <a [routerLink]="['/song', chord._id]"> {{chord.title}} - {{chord.author}}</a>
+    </li>
+  </ul>
+</section>

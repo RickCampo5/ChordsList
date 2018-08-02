@@ -7,7 +7,12 @@ const listsSchema = new require ('mongoose').Schema({
   secondTitle: String,
   message: String,
   keys:[Array],
-  chords: [Object],
+  chords: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Chords'
+    }
+  ],
   user: {
     type: Schema.Types.ObjectId,
     ref:'User'

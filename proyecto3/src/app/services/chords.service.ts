@@ -10,11 +10,10 @@ export class ChordsService{
     url = "http://localhost:3000/chords/"
     constructor(private http:Http){}
 
-    //get all phones
+    //get all Chords
     getAllChords(){
-        return this.http.get(this.url).toPromise()
-        .then((res: Response)=> res.json())
-        .catch(e=>console.log(e))                        
+        return this.http.get(this.url)
+        .pipe(map((res:Response)=>res.json()))                     
     }
 
     //get one user Chords
@@ -23,25 +22,31 @@ export class ChordsService{
       .pipe(map((res: Response)=>res.json()));
     }
 
-    //get one phone
+    //get one Chord
     getOneChord(id){
         return this.http.get(this.url + 'one/' + id)
             .pipe(map((res: Response)=>res.json()));                                
     }
 
-    //create one phone
+    //Search Chords
+    searchChords(obj){
+        return this.http.post(this.url + 'search/songs', obj)
+        .pipe(map((res:Response)=>res.json()))
+    }
+
+    //create one Chord
     createChord(obj){
         return this.http.post(this.url, obj)
             .pipe(map((res: Response)=>res.json()))                                                             
     }    
         
-    //edit one phone
+    //edit one Chord
     editOneChord(obj){
     return this.http.put(this.url + obj._id, obj) 
         .pipe(map((res: Response)=>res.json()))    
     }    
 
-    //delete one phone richard
+    //delete one Chord 
     deleteChord(id){
         return this.http.delete(this.url + id)
             .pipe(map((res: Response)=>res.json()))                                                                

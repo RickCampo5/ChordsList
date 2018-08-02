@@ -17,7 +17,7 @@ export class ListService {
   ) { }
 
   getAllMyLists(){
-    return this.http.get(this.url, this.userId)
+    return this.http.get(this.url + this.userId)
     .pipe(map((res:Response)=>res.json()))
   }
 

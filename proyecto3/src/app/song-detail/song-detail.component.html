@@ -6,8 +6,8 @@
     <p [innerHTML]="chord.partiture"></p>
   </div>
   <div>
-    <button (click)="editSong()">Editar</button>
-    <button (click)="deleteSong(chord._id)" >Borrar</button>
+    <button *ngIf="userId == chord.user" (click)="editSong()">Editar</button>
+    <button *ngIf="userId == chord.user" (click)="deleteSong(chord._id)" >Borrar</button>
   </div>
 </section>
 

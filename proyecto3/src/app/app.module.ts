@@ -16,7 +16,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { NewSongComponent } from './new-song/new-song.component';
 import { SongDetailComponent } from './song-detail/song-detail.component';
 import { EditSongComponent } from './edit-song/edit-song.component';
-import { NewListComponent } from './new-list/new-list.component'
+import { NewListComponent } from './new-list/new-list.component';
+import { SearchComponent } from './search/search.component'
 
 //Services
 
@@ -30,7 +31,8 @@ import { NewListComponent } from './new-list/new-list.component'
     NewSongComponent,
     SongDetailComponent,
     EditSongComponent,
-    NewListComponent
+    NewListComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

@@ -6,8 +6,8 @@
     <img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1533054058/ChordList/CList.png" alt="Music Chord List">
   </a>
   <div>
-    <input type="text" placeholder="¿Qué canción buscas?">
-    <button>Buscar</button>
+    <input [(ngModel)]="obj.regex" type="text" placeholder="¿Qué canción buscas?">
+    <button (click)="search()" >Buscar</button>
   </div>
   <ul>
     <li>
@@ -18,7 +18,7 @@
       <a href="">Listas</a>
     </li>
     <li>
-     <a href="">Acordes</a>
+     <a [routerLink]="['chords', '']">Acordes</a>
     </li>
     <li *ngIf="user">
       <a href="#" (click)="logout()">Log Out</a>
