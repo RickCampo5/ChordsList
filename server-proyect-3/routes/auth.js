@@ -30,7 +30,6 @@ router.get('/logout', (req,res,next)=>{
     res.send('cerrado');
 });
 
-
 router.post('/login', passport.authenticate('local'), (req,res,next)=>{
     req.app.locals.user = req.user
     res.json(req.user)

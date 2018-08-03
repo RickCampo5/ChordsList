@@ -9,25 +9,24 @@ import {map} from 'rxjs/operators'
 export class ListService {
 
   url="http://localhost:3000/lists/"
-  userId = JSON.parse(localStorage.getItem('userId'))
   lists = []
 
   constructor(
     private http: Http
   ) { }
 
-  getAllMyLists(){
-    return this.http.get(this.url + this.userId)
+  getAllMyLists(user){
+    return this.http.get(this.url + user)
     .pipe(map((res:Response)=>res.json()))
   }
 
-  getAllSavedLists(){
-    return this.http.get(this.url + 'savedLists/', this.userId)
+  getAllSavedLists(user){
+    return this.http.get(this.url + 'savedLists/', user)
     .pipe(map((res:Response)=>res.json()))
   }
 
   getOneList(id){
-    return this.http.get(this.url + 'one/', id)
+    return this.http.get(this.url + 'one/' + id)
     .pipe(map((res:Response)=>res.json()))
   }
 

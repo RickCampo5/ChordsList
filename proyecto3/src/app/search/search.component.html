@@ -1,7 +1,14 @@
+<app-nav-and-footer></app-nav-and-footer>
 <section>
+  <div>
+  <h2>Buscar</h2>
+  <input [(ngModel)]="pattern" type="text" name="pattern">
+  </div>
+  <div>
   <ul>
-    <li *ngFor="let chord of chords">
+    <li *ngFor="let chord of chords | filter:'title':pattern">
       <a [routerLink]="['/song', chord._id]"> {{chord.title}} - {{chord.author}}</a>
     </li>
   </ul>
+  </div>
 </section>

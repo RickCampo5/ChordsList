@@ -1,3 +1,4 @@
+<app-nav-and-footer></app-nav-and-footer>
 <section>
   <article>
     <h2>Crea tu lista</h2>
@@ -7,6 +8,9 @@
       <input name="secondTitle" placeholder="Alabanza, Final, Adoración" [(ngModel)]="list.secondTitle" type="text"> -->
       <div id="songs">
       <h3>Canciones</h3>
+      <p *ngFor="let chord of listChords" >
+        {{chord.title}} - {{chord.author}} <button (click)="rest(chord)" >-</button>
+      </p>
       </div>
       <textarea name="message" placeholder="Detalle de cada canción: Comienza desde el coro..." [(ngModel)]="list.message" cols="30" rows="10"></textarea>
       <button (click)="saveList()" class="save">Guardar</button>

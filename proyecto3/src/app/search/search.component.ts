@@ -14,17 +14,19 @@ export class SearchComponent implements OnInit {
     private activeRoute: ActivatedRoute
   ) { }
 
-  obj={regex: String}
+  today = new Date();
+  stuff: Array<Object> = [];
+  pattern: string;
+
+  regex: String
   chords = {}
 
   ngOnInit() {
-    this.obj.regex = this.activeRoute.snapshot.params['reg']
-    console.log(this.obj.regex)
-    this.chordsService.searchChords(this.obj)
+    this.chordsService.getAllChords()
     .subscribe(chords=>{
-      console.log(chords)
       this.chords = chords
     })
+
   }
 
 }

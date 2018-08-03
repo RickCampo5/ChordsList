@@ -1,9 +1,9 @@
 <nav>
-  <a *ngIf="!user" [routerLink]="['login']">
-    <img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1533054058/ChordList/CList.png" alt="Music Chord List">
+  <a *ngIf="!userId" [routerLink]="['/login']">
+    <img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1533323610/ChordList/stencil.blog-post-feature_1.png" alt="Music Chord List">
   </a>
-  <a *ngIf="user" [routerLink]="['profile', user]">
-    <img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1533054058/ChordList/CList.png" alt="Music Chord List">
+  <a *ngIf="userId" [routerLink]="['/profile', userId]">
+    <img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1533323425/ChordList/stencil.blog-post-feature_1.png" alt="Music Chord List">
   </a>
   <div>
     <input [(ngModel)]="obj.regex" type="text" placeholder="¿Qué canción buscas?">
@@ -11,16 +11,13 @@
   </div>
   <ul>
     <li>
-      <a *ngIf="user" [routerLink]="['profile', user]">Perfil</a>
-      <a *ngIf="!user" [routerLink]="['login']" >Perfil</a>
+      <a *ngIf="userId" [routerLink]="['/profile', userId]">Perfil</a>
+      <a *ngIf="!userId" [routerLink]="['/login']" >Perfil</a>
     </li>
     <li>
-      <a href="">Listas</a>
+     <a [routerLink]="['/chords']">Acordes</a>
     </li>
-    <li>
-     <a [routerLink]="['chords', '']">Acordes</a>
-    </li>
-    <li *ngIf="user">
+    <li *ngIf="userId" >
       <a href="#" (click)="logout()">Log Out</a>
     </li>
   </ul>
@@ -30,7 +27,9 @@
   <div class="weDo">
   <h5>ChordLsit</h5>
   <p>
-    Esta pagina esta diseñada para musicos y quienes quieren aprender a tocar. Aqui puedes subir tu repositorio de canciones y compartirlo con tu banda para facilitar la comunicacion y que todos tengan las mismas notas
+    Esta pagina esta diseñada para compartir acordes y listas de acordes
+    con tu grupo o banda así todos tendrán la posibilidad de encontrarlos
+    de manera ordenada
   </p>
   </div>
   <div>

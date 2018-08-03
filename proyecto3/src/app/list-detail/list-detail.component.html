@@ -1,0 +1,44 @@
+<app-nav-and-footer></app-nav-and-footer>
+<section *ngIf="!edit">
+  <div>
+    <h2>{{list.date | date: "EEEE, d MMM"}}</h2>
+    <ul>
+      <li *ngFor="let chord of list.chords" >
+       <a [routerLink]="['/song', chord._id]">{{chord.title}} - {{chord.author}}</a>
+      </li>
+    </ul>
+    <p>{{list.message}}</p>
+  </div>
+  <div>
+    <button class="btn" *ngIf="userId == list.user" (click)="editList()" >Editar</button>
+    <button class="btn" *ngIf="userId == list.user" (click)="deleteList(list._id)" >Borrar</button>
+    <button class="btn" >Compartir Lista</button>
+  </div>
+</section>
+
+
+<section id="form" *ngIf="edit">
+  <form>
+    <input name="date" [(ngModel)]="list.date" type="date">
+    <div id="songs">
+      <h3>Canciones</h3>
+      <p *ngFor="let chord of list.chords" >
+        {{chord.title}} - {{chord.author}}  <button (click)="rest(chord)" >-</button> 
+      </p>
+    </div>
+    <textarea name="message" 
+    [(ngModel)]="list.message" cols="30" rows="10"></textarea>
+    <div>
+        <button class="btn" (click)="saveList()" >Guardar Lista</button>
+        <button class="btn" (click)="cancel()" >Cancelar</button>
+      </div>
+  </form>
+  
+  <article>
+      <h2>Buscador</h2>
+      <input class="input" type="text">
+      <ul>
+        <li *ngFor="let chord of chords">{{chord.title}} - {{chord.author}} <button (click)="add(chord)">+</button> </li> 
+      </ul>
+    </article>
+</section>

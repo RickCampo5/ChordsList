@@ -4,7 +4,7 @@ const User = require('../models/User')
 
 //get my lists of user
 router.get('/:id',(req,res,next)=>{
-    List.find({user:req.params.userid})
+    List.find({user:req.params.id})
     .then(lists=>{
         return res.status(200).json(lists)
     })
@@ -36,6 +36,7 @@ router.post('/', (req,res,next)=>{
 //get one list
 router.get('/one/:id', (req,res,next)=>{
     List.findById(req.params.id)
+    .populate('chords')
     .then(list=>{
         if(!list) return res.status(404)
         return res.status(200).json(list)

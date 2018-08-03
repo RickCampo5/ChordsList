@@ -30,11 +30,12 @@ export class NewListComponent implements OnInit {
   }
 
   add(chord){
-    this.listChords.push(chord._id)
-    var node = document.createElement('p')
-    var div = document.getElementById('songs')
-    node.innerHTML = `${chord.title} - ${chord.author}`
-    div.appendChild(node)
+    this.listChords.push(chord)
+  }
+
+  rest(chord){
+    const index = this.listChords.indexOf(chord)
+    this.listChords.splice(index,1)
   }
 
   ngOnInit() {

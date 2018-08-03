@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #4f5bff;
   width: 100vw;
   height: 550px;
   margin-top: 20px;
@@ -17,7 +16,6 @@
   width: 500px;
   height: 300px;
   border-radius: 50px;
-  color: #fff;
 }
 
 input{

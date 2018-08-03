@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
       return this.router.navigate(['login'])
     }
 
-    this.listService.getAllMyLists()
+    this.listService.getAllMyLists(this.userId)
     .subscribe(lists=>{
       this.lists = lists
     })

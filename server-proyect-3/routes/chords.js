@@ -11,11 +11,20 @@ router.get('/',(req,res,next)=>{
     .catch(e=>next(e))
 })
 
-//Get al user chords
+//Get all user chords
 router.get('/:userid',(req,res,next)=>{
     Chords.find({user:req.params.userid})
     .then(chords=>{
         return res.status(200).json(chords)
+    })
+    .catch(e=>next(e))
+})
+
+//get User
+router.get('/get/:id',(req,res,next)=>{
+    User.findById(req.params.id)
+    .then(user=>{
+        return res.status(200).json(user)
     })
     .catch(e=>next(e))
 })

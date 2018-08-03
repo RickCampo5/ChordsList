@@ -22,10 +22,6 @@ export class AuthService {
     .pipe(map(res=>res.json()))
   }
 
-  getPrivatePhones(){
-    return this.http.get(this.url + 'private', {withCredentials:true})
-    .pipe(map(res=>res.json()))
-  }
 
   logout(){
     localStorage.removeItem('user')

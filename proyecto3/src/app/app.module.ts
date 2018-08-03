@@ -15,9 +15,11 @@ import { routes } from './routes';
 import { ProfileComponent } from './profile/profile.component';
 import { NewSongComponent } from './new-song/new-song.component';
 import { SongDetailComponent } from './song-detail/song-detail.component';
-import { EditSongComponent } from './edit-song/edit-song.component';
 import { NewListComponent } from './new-list/new-list.component';
-import { SearchComponent } from './search/search.component'
+import { SearchComponent } from './search/search.component';
+import { ListDetailComponent } from './list-detail/list-detail.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { CpipesComponent } from './cpipes/cpipes.component'
 
 //Services
 
@@ -30,9 +32,11 @@ import { SearchComponent } from './search/search.component'
     ProfileComponent,
     NewSongComponent,
     SongDetailComponent,
-    EditSongComponent,
     NewListComponent,
-    SearchComponent
+    SearchComponent,
+    ListDetailComponent,
+    FilterPipe,
+    CpipesComponent
   ],
   imports: [
     BrowserModule,
