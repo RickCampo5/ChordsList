@@ -23,6 +23,7 @@ export class ListDetailComponent implements OnInit {
   edit = false
   chords = {}
   listChords = []
+  url = window.location.href
 
   editList(){
     this.edit = true
@@ -32,12 +33,32 @@ export class ListDetailComponent implements OnInit {
     this.edit = false
   }
 
+  saveOnMyLists(){
+    this.listService.saveLists(this.list, this.userId)
+    .subscribe(list=>{
+      this.router.navigate(['profile', this.userId])
+    })
+  }
+
+  deleteOfMyLists(){
+    this.listService.deleteOfMyLists(this.list, this.userId)
+    .subscribe(list=>{
+      this.router.navigate(['profile', this.userId])
+    })
+  }
+
   saveList(){
     this.list.chords = this.listChords
     this.listService.editOne(this.list)
     .subscribe(()=>{
       this.edit = false
     })
+  }
+
+  shareURL(){
+    const copy = document.getElementById('copyURL') as HTMLInputElement
+    copy.select();
+    document.execCommand('copy')
   }
 
   add(chord){

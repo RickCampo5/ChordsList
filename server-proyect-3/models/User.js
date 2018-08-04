@@ -7,19 +7,19 @@ const userSchema = new require('mongoose').Schema({
     chords:[
         {
             type: Schema.Types.ObjectId,
-            ref: 'Product'
+            ref: 'Chords'
         }
     ],
     lists:[
       {
           type: Schema.Types.ObjectId,
-          ref: 'Lists'
+          ref: 'List'
       }
   ],
   myLists: [
     {
         type: Schema.Types.ObjectId,
-        ref: 'Lists'
+        ref: 'List'
     }
   ]
 },{

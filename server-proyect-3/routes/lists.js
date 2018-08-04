@@ -4,21 +4,29 @@ const User = require('../models/User')
 
 //get my lists of user
 router.get('/:id',(req,res,next)=>{
-    List.find({user:req.params.id})
-    .then(lists=>{
-        return res.status(200).json(lists)
+    User.findById(req.params.id)
+    .populate('myLists')
+    .then(user=>{
+        return res.status(200).json(user)
     })
     .catch(e=>next(e))
 })
 
-//get saved lists
-router.get('/savedLists/:id', (req,res,next)=>{
-    User.findById(req.params.id)
-    .populate('lists')
+//save on my lists
+router.put('/save/:id', (req,res,next)=>{
+    User.findByIdAndUpdate(req.params.id, {$push:{myLists:req.body}})
     .then(user=>{
         return res.status(200).json(user)
     })
     .catch(e=>next(e));
+})
+
+router.put('/delete/:id',(req,res,next)=>{
+    User.findByIdAndUpdate(req.params.id, {$pull:{myLists:req.body._id}})
+    .then(user=>{
+        return res.status(200).json(user)
+    })
+    .catch(e=>next(e))
 })
 
 //create list
@@ -60,7 +68,10 @@ router.put("/:id", (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
     List.findByIdAndRemove(req.params.id)
         .then(list => {
-            res.status(200).json(list)
+            return User.findByIdAndUpdate(req.app.locals.user.id, {$pull:{myLists:req.params.id}})
+            .then(user=>{
+                res.status(200).json(user)
+            })
         })
         .catch(e=>{
             res.status(500).json({message:"algo falló"})

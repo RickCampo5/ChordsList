@@ -20,8 +20,13 @@ export class ListService {
     .pipe(map((res:Response)=>res.json()))
   }
 
-  getAllSavedLists(user){
-    return this.http.get(this.url + 'savedLists/', user)
+  deleteOfMyLists(list, userId){
+    return this.http.put(this.url + 'delete/' + userId, list)
+    .pipe(map((res:Response)=>res.json()))
+  }
+
+  saveLists(list, userId){
+    return this.http.put(this.url + 'save/' + userId, list)
     .pipe(map((res:Response)=>res.json()))
   }
 

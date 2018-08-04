@@ -19,7 +19,7 @@ import { NewListComponent } from './new-list/new-list.component';
 import { SearchComponent } from './search/search.component';
 import { ListDetailComponent } from './list-detail/list-detail.component';
 import { FilterPipe } from './pipes/filter.pipe';
-import { CpipesComponent } from './cpipes/cpipes.component'
+import { FooterComponent } from './footer/footer.component';
 
 //Services
 
@@ -36,7 +36,7 @@ import { CpipesComponent } from './cpipes/cpipes.component'
     SearchComponent,
     ListDetailComponent,
     FilterPipe,
-    CpipesComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

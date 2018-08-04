@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   chords = []
-  lists = []
+  user = {}
   userId = JSON.parse(localStorage.getItem('userId'))
 
   createChords(){
@@ -37,8 +37,8 @@ export class ProfileComponent implements OnInit {
     }
 
     this.listService.getAllMyLists(this.userId)
-    .subscribe(lists=>{
-      this.lists = lists
+    .subscribe(user=>{
+      this.user = user
     })
 
     this.chordsService.getOneUserChords(this.userId)

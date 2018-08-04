@@ -1,5 +1,6 @@
 <app-nav-and-footer></app-nav-and-footer>
 <section *ngIf="!edit">
+  <article>
   <div>
     <h2>{{list.date | date: "EEEE, d MMM"}}</h2>
     <ul>
@@ -12,8 +13,16 @@
   <div>
     <button class="btn" *ngIf="userId == list.user" (click)="editList()" >Editar</button>
     <button class="btn" *ngIf="userId == list.user" (click)="deleteList(list._id)" >Borrar</button>
-    <button class="btn" >Compartir Lista</button>
+    <button class="btn" *ngIf="userId != list.user" (click)="saveOnMyLists()" >Guardar Lista</button>
+    <button class="btn" (click)="deleteOfMyLists()" >Eliminar</button>
   </div>
+</article>
+<article>
+  <div class="url">
+    <input id="copyURL" value="{{this.url}}">
+    <button (click)="shareURL()" class="btn2" >Copiar Url para compartir</button>
+  </div>
+</article>
 </section>
 
 
@@ -42,3 +51,5 @@
       </ul>
     </article>
 </section>
+
+<app-footer></app-footer>
