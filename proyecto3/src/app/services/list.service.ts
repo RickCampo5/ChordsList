@@ -9,7 +9,7 @@ import {map} from 'rxjs/operators'
 export class ListService {
 
   // url="http://localhost:3000/lists/"
-  url = '/'
+  url = '/lists/'
   lists = []
 
   constructor(
