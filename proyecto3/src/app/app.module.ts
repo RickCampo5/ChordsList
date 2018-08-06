@@ -14,12 +14,13 @@ import { AuthComponent } from './auth/auth.component';
 import { routes } from './routes';
 import { ProfileComponent } from './profile/profile.component';
 import { NewSongComponent } from './new-song/new-song.component';
-import { SongDetailComponent } from './song-detail/song-detail.component';
+import { SongDetailComponent, SafePipe } from './song-detail/song-detail.component';
 import { NewListComponent } from './new-list/new-list.component';
 import { SearchComponent } from './search/search.component';
 import { ListDetailComponent } from './list-detail/list-detail.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FooterComponent } from './footer/footer.component';
+import { ListChordsComponent } from './list-chords/list-chords.component';
 
 //Services
 
@@ -37,6 +38,8 @@ import { FooterComponent } from './footer/footer.component';
     ListDetailComponent,
     FilterPipe,
     FooterComponent,
+    SafePipe,
+    ListChordsComponent
   ],
   imports: [
     BrowserModule,

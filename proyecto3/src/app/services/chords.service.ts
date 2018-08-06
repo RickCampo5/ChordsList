@@ -7,7 +7,8 @@ import {map} from 'rxjs/operators'
     providedIn: 'root'
 })
 export class ChordsService{
-    url = "http://localhost:3000/chords/"
+    // url = "http://localhost:3000/chords/"
+    url = '/'
     constructor(private http:Http){}
 
     //get all Chords

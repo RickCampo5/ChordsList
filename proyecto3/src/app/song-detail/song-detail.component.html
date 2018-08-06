@@ -1,15 +1,26 @@
 <app-nav-and-footer></app-nav-and-footer>
 <section *ngIf="!edit">
+  <article>
   <div class="card">
     <h2>{{chord.title}}</h2>
     <h3>{{chord.author}}</h3>
-    <p>{{chord.key}}</p>
+    <p>Tono: {{chord.key}}</p>
     <p [innerHTML]="chord.partiture"></p>
   </div>
-  <div>
-    <button *ngIf="userId == chord.user" (click)="editSong()">Editar</button>
-    <button *ngIf="userId == chord.user" (click)="deleteSong(chord._id)" >Borrar</button>
-  </div>
+  </article>
+  <article>
+    <div class="btn-container">
+      <p>{{chord.audioURL}}</p>
+      <audio control>
+        <source src="{{chord.audioURL}}">
+      </audio>
+      <button *ngIf="userId == chord.user" (click)="editSong()">Editar</button>
+      <button *ngIf="userId == chord.user" (click)="deleteSong(chord._id)" >Borrar</button>
+      <h2>Tonos</h2>
+      <button>+1/2</button>
+      <button>-1/2</button>
+    </div>
+  </article>
 </section>
 
 <section id="form" *ngIf="edit">
@@ -18,6 +29,7 @@
         <input  type="text" name="author" [(ngModel)]="chord.author" >
         <input  type="text" name="key" [(ngModel)]="chord.key" >
         <textarea [(ngModel)]="chord.partiture" name="partiture"></textarea>
+        <!-- <input type="file" name="audioURL" (change)="onFileChange($event)"> -->
         <button (click)="saveSong()" >Guardar Canción</button>
         <button (click)="cancel()" >Cancel</button>
       </form>

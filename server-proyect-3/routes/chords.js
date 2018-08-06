@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Chords = require('../models/Chords')
 const User = require('../models/User')
+const uploadCloud = require('../helpers/cloudinary')
 
 //get all chords
 router.get('/',(req,res,next)=>{
@@ -61,7 +62,8 @@ router.post('/search/songs',(req,res,next)=>{
 })
 
 //Edit song 
-router.put("/:id", (req, res, next) => {
+router.put("/:id", uploadCloud.single('audio'), (req, res, next) => {
+    if(req.file) req.body.audioURL = req.file.url
   Chords.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(chord => {
       return res.status(202).json(chord);

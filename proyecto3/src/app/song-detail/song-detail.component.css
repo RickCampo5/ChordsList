@@ -1,8 +1,7 @@
 section{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
   min-height: 500px;
 }
 .card{
@@ -16,7 +15,7 @@ section{
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 500px;
+  min-height: 500px;
 }
 form{
 display: flex;
@@ -48,4 +47,13 @@ button{
   height: 30px;
   font-size: 1em;
   color: #fff
+}
+
+.btn-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  max-width: 200px;
 }

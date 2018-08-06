@@ -5,10 +5,10 @@
   <a *ngIf="userId" [routerLink]="['/profile', userId]">
     <img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1533323425/ChordList/stencil.blog-post-feature_1.png" alt="Music Chord List">
   </a>
-  <div>
+  <!-- <div>
     <input [(ngModel)]="obj.regex" type="text" placeholder="¿Qué canción buscas?">
     <button (click)="search()" >Buscar</button>
-  </div>
+  </div> -->
   <ul>
     <li>
       <a *ngIf="userId" [routerLink]="['/profile', userId]">Perfil</a>

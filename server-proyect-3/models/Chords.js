@@ -6,6 +6,7 @@ const chordsSchema = new require ('mongoose').Schema({
   key: String,
   author: String,
   partiture: String,
+  audioURL: String,
   user:{
     type: Schema.Types.ObjectId,
     ref: "User"

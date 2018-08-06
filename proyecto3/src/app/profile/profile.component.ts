@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   chords = []
-  user = {}
+  user:any = {}
   userId = JSON.parse(localStorage.getItem('userId'))
 
   createChords(){

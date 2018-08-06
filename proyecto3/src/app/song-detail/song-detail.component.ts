@@ -1,8 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform,  } from '@angular/core';
+import { DomSanitizer } from "@angular/platform-browser"
 import {ActivatedRoute, Router} from '@angular/router'
 import {ChordsService} from '../services/chords.service'
-import { subscribeOn } from '../../../node_modules/rxjs/operators';
 
+@Pipe({ name: 'safe' })
+export class SafePipe implements PipeTransform {
+  constructor(private sanitizer: DomSanitizer) { }
+  transform(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+}
 
 @Component({
   selector: 'app-song-detail',
@@ -12,9 +19,10 @@ import { subscribeOn } from '../../../node_modules/rxjs/operators';
 export class SongDetailComponent implements OnInit {
 
   id = ""
-  chord = {}
+  chord:any = {}
   userId = JSON.parse(localStorage.getItem('userId'))
   edit = false
+  file: any
 
   constructor(
     private activeRoute : ActivatedRoute,
@@ -22,7 +30,14 @@ export class SongDetailComponent implements OnInit {
     private router: Router
   ) { }
 
+  // onFileChange(e){
+  //   this.file = e.target.files[0]
+  // }
+
   saveSong(){
+    // const form = new FormData()
+    // form.append('audioURL', this.file)
+    // console.log(form)
     this.chordsService.editOneChord(this.chord)
     .subscribe(()=>{
       this.edit = false
