@@ -1,15 +1,6 @@
-import { Component, OnInit, Pipe, PipeTransform,  } from '@angular/core';
-import { DomSanitizer } from "@angular/platform-browser"
+import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router'
 import {ChordsService} from '../services/chords.service'
-
-@Pipe({ name: 'safe' })
-export class SafePipe implements PipeTransform {
-  constructor(private sanitizer: DomSanitizer) { }
-  transform(url) {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-  }
-}
 
 @Component({
   selector: 'app-song-detail',

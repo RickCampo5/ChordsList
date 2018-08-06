@@ -14,9 +14,7 @@ export class SearchComponent implements OnInit {
     private activeRoute: ActivatedRoute
   ) { }
 
-  today = new Date();
-  stuff: Array<Object> = [];
-  pattern: string;
+  pattern: String;
 
   regex: String
   chords = {}

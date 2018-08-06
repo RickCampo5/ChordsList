@@ -2,11 +2,11 @@
 <section>
   <div>
   <h2>Buscar</h2>
-  <input [(ngModel)]="pattern" type="text" name="pattern">
+  <input [(ngModel)]="searchText" type="text" name="pattern">
   </div>
   <div>
   <ul>
-    <li *ngFor="let chord of chords | filter:'title':pattern">
+    <li *ngFor="let chord of chords | filter:searchText">
       <a [routerLink]="['/song', chord._id]"> {{chord.title}} - {{chord.author}}</a>
     </li>
   </ul>
