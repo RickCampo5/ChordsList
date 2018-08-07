@@ -3,8 +3,8 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #4f5bff;
-  color: #fff;
+  background-color: #fcff60;
+  color: #000;
   width: 100vw;
   bottom: 0;
   min-height: 230px;
@@ -27,6 +27,6 @@ li{
 
 li a{
   text-decoration: none;
-  color: white;
+  color: #000;
   font-size: 2em;
 }

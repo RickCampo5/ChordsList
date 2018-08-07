@@ -22,21 +22,17 @@ section{
   }
 
   .btn{
-    background-color: #4f5bff;
     margin: 20px 10px;
     width: 120px;
     height: 50px;
     font-size: 1em;
-    color: #fff
   }
 
   .btn2{
-    background-color: #4f5bff;
     margin: 20px 10px;
     width: 400px;
     height: 50px;
     font-size: 1em;
-    color: #fff
   }
 
   .url{

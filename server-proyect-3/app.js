@@ -77,8 +77,8 @@ const index = require('./routes/index');
 const chords = require('./routes/chords')
 const lists = require('./routes/lists')
 const auth = require('./routes/auth') 
-app.use('/chords', chords)
-app.use('/lists', lists)
+app.use('/apichords', chords)
+app.use('/apilists', lists)
 app.use('/', auth) 
 app.use('/', index);
 

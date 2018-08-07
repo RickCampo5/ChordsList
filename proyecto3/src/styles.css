@@ -4,3 +4,13 @@ body,html{
   margin: 0;
   font-family: Avenir;
 }
+
+h2,h2,h3,h4{
+  color: #000;
+}
+button{
+  background-color: #000;
+  color: #fcff60;
+  cursor: pointer;
+  border-radius: 5px;
+}

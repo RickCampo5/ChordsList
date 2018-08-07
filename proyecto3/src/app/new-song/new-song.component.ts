@@ -30,8 +30,6 @@ export class NewSongComponent implements OnInit {
         this.chords.audioURL = res
         console.log(this.chords)
       })
-     
-    
   }
 
   saveSong(){

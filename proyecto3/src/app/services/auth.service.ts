@@ -7,8 +7,8 @@ import {Observable} from 'rxjs'
   providedIn: 'root'
 })
 export class AuthService {
-  url = "http://localhost:3000/"
-  // url = "/"
+  // url = "http://localhost:3000/"
+  url = "/"
   constructor(
     private http: Http
   ) { }

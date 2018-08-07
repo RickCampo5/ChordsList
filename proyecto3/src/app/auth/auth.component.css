@@ -27,10 +27,9 @@ input{
 }
 
 button{
-  background-color: #4f5bff;
+  background-color: #000000;
   margin-top: 20px;
   width: 100px;
   height: 30px;
   font-size: 1em;
-  color: #fff
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router'
 import {ChordsService} from '../services/chords.service'
+import {UpfirebaseService} from '../services/upfirebase.service'
 
 @Component({
   selector: 'app-song-detail',
@@ -14,21 +15,27 @@ export class SongDetailComponent implements OnInit {
   userId = JSON.parse(localStorage.getItem('userId'))
   edit = false
   file: any
+  keys = []
 
   constructor(
     private activeRoute : ActivatedRoute,
     private chordsService: ChordsService,
-    private router: Router
+    private router: Router,
+    private upFirebaseService: UpfirebaseService
   ) { }
 
-  // onFileChange(e){
-  //   this.file = e.target.files[0]
-  // }
+
+  onFileChange(e){
+    this.file = e.target.files[0]
+    this.upFirebaseService.uploadFile(this.file)
+      .then(res=>{
+        this.chord.audioURL = res
+        console.log(this.chord)
+      })
+  }
 
   saveSong(){
-    // const form = new FormData()
-    // form.append('audioURL', this.file)
-    // console.log(form)
+    this.chord.partiture = this.chord.partiture.replace(/\n/g, '<br>', )
     this.chordsService.editOneChord(this.chord)
     .subscribe(()=>{
       this.edit = false

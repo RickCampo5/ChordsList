@@ -5,3 +5,10 @@ section{
   align-items: center;
   min-height: 500px;
 }
+
+a{
+  color: black;
+}
+ul{
+  list-style: none;
+}

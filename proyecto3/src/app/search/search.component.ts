@@ -14,9 +14,8 @@ export class SearchComponent implements OnInit {
     private activeRoute: ActivatedRoute
   ) { }
 
-  pattern: String;
+  searchText: String;
 
-  regex: String
   chords = {}
 
   ngOnInit() {

@@ -5,20 +5,20 @@
     <h2>{{chord.title}}</h2>
     <h3>{{chord.author}}</h3>
     <p>Tono: {{chord.key}}</p>
-    <p [innerHTML]="chord.partiture"></p>
+    <p id="partiture" [innerHTML]="chord.partiture"></p>
   </div>
   </article>
   <article>
     <div class="btn-container">
-      <p>{{chord.audioURL}}</p>
-      <audio control>
-        <source src="{{chord.audioURL}}">
+      <h2>Canción:</h2>
+      <audio controls src="{{chord.audioURL}}">
       </audio>
+      <a *ngIf="chord.ytURL" href="{{chord.ytURL}}" target="_blank">Video en Youtube</a>
       <button *ngIf="userId == chord.user" (click)="editSong()">Editar</button>
       <button *ngIf="userId == chord.user" (click)="deleteSong(chord._id)" >Borrar</button>
-      <h2>Tonos</h2>
-      <button>+1/2</button>
-      <button>-1/2</button>
+      <!-- <h2>Tonos</h2>
+      <button (click)="sumChord()" >+1/2</button>
+      <button>-1/2</button> -->
     </div>
   </article>
 </section>
@@ -28,8 +28,12 @@
         <input type="text" name="title" [(ngModel)]="chord.title">
         <input  type="text" name="author" [(ngModel)]="chord.author" >
         <input  type="text" name="key" [(ngModel)]="chord.key" >
+        <div>
+          <input type="file" name="audioURL" (change)="onFileChange($event)">
+          <span> ó </span>
+          <input type="text" name="ytURL" [(ngModel)]="chord.ytURL" >
+        </div>
         <textarea [(ngModel)]="chord.partiture" name="partiture"></textarea>
-        <!-- <input type="file" name="audioURL" (change)="onFileChange($event)"> -->
         <button (click)="saveSong()" >Guardar Canción</button>
         <button (click)="cancel()" >Cancel</button>
       </form>
