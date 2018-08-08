@@ -17,6 +17,7 @@ export class ChordsService{
         .pipe(map((res:Response)=>res.json()))                     
     }
 
+    //get User
     getUser(id){
         return this.http.get(this.url + 'get/' + id)
         .pipe(map((res:Response)=>res.json()))

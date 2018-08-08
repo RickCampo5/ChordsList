@@ -25,6 +25,7 @@ export class ListDetailComponent implements OnInit {
   listChords = []
   url = window.location.href
   searchText:String
+  user:any = {}
 
   editList(){
     this.edit = true
@@ -95,6 +96,11 @@ export class ListDetailComponent implements OnInit {
     this.chordService.getAllChords()
     .subscribe(chords=>{
       this.chords = chords
+    })
+
+    this.chordService.getUser(this.userId)
+    .subscribe(user=>{
+      this.user = user
     })
   }
 
