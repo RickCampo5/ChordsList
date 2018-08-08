@@ -21,7 +21,7 @@ export class UpfirebaseService {
 
   uploadFile(file){
     let task;
-    task = firebase.storage().ref('/audios').put(file)
+    task = firebase.storage().ref(file.name).put(file)
 
     return task.snapshot.ref.getDownloadURL()
       // .then((snap:any)=>{
@@ -31,10 +31,5 @@ export class UpfirebaseService {
       //     })
       //   //return snap.task.uploadUrl_
       // })
-    // task.on('state_changed', (snap)=>{
-    //   console.log(snap)
-    //   // let progress = (snap.bytesTransferred/snap.totalBytes)*100
-    //   // console.log(progress)
-    // })
   }
 }

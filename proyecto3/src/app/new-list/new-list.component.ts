@@ -20,6 +20,7 @@ export class NewListComponent implements OnInit {
   userId = JSON.parse(localStorage.getItem('userId'))
   chords = []
   listChords = []
+  searchText:String
 
   saveList(){
     this.list.chords = this.listChords

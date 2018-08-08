@@ -30,7 +30,6 @@ export class SongDetailComponent implements OnInit {
     this.upFirebaseService.uploadFile(this.file)
       .then(res=>{
         this.chord.audioURL = res
-        console.log(this.chord)
       })
   }
 

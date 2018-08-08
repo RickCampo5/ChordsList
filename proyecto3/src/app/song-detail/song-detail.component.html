@@ -16,9 +16,6 @@
       <a *ngIf="chord.ytURL" href="{{chord.ytURL}}" target="_blank">Video en Youtube</a>
       <button *ngIf="userId == chord.user" (click)="editSong()">Editar</button>
       <button *ngIf="userId == chord.user" (click)="deleteSong(chord._id)" >Borrar</button>
-      <!-- <h2>Tonos</h2>
-      <button (click)="sumChord()" >+1/2</button>
-      <button>-1/2</button> -->
     </div>
   </article>
 </section>

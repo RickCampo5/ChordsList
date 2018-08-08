@@ -24,6 +24,7 @@ export class ListDetailComponent implements OnInit {
   chords = {}
   listChords = []
   url = window.location.href
+  searchText:String
 
   editList(){
     this.edit = true

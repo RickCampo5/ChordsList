@@ -14,3 +14,15 @@ button{
   cursor: pointer;
   border-radius: 5px;
 }
+
+input{
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid;
+  outline: none;
+  width: 200px;
+  font-size: 1em;
+}
+textarea{
+  outline: none;
+}

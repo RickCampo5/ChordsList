@@ -81,6 +81,9 @@ app.use('/apichords', chords)
 app.use('/apilists', lists)
 app.use('/', auth) 
 app.use('/', index);
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+})
 
 
 

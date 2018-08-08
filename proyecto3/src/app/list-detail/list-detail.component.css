@@ -6,6 +6,10 @@ section{
   min-height: 500px;
 }
 
+a{
+  color: #000;
+}
+
 #copyURL{
   background: transparent;
   border: none;

@@ -18,9 +18,9 @@
   </article>
   <article>
     <h2>Buscador</h2>
-    <input class="input" type="text">
+    <input [(ngModel)]="searchText" class="input" type="text">
     <ul>
-      <li *ngFor="let chord of chords">{{chord.title}} - {{chord.author}} <button (click)="add(chord)">+</button> </li> 
+      <li *ngFor="let chord of chords | filter:searchText">{{chord.title}} - {{chord.author}} <button (click)="add(chord)">+</button> </li> 
     </ul>
   </article>
 </section>
