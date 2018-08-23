@@ -13,8 +13,8 @@
   <div>
     <button class="btn" *ngIf="userId == list.user" (click)="editList()" >Editar</button>
     <button class="btn" *ngIf="userId == list.user" (click)="deleteList(list._id)" >Eliminar Lista</button>
-    <button class="btn" *ngIf="userId != list.user && user.myLists != list._id" (click)="saveOnMyLists()" >Guardar Lista</button>
-    <button *ngIf="userId != list.user && user.myLists == list._id" class="btn" (click)="deleteOfMyLists()" >Borrar de mis Listas</button>
+    <button class="btn" *ngIf="userId != list.user && !inList" (click)="saveOnMyLists()" >Guardar Lista</button>
+    <button *ngIf="userId != list.user && inList" class="btn" (click)="deleteOfMyLists()" >Borrar de mis Listas</button>
   </div>
 </article>
 <article>

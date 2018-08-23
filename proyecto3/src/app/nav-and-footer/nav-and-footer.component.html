@@ -11,7 +11,7 @@
   </div> -->
   <ul>
     <li>
-      <a *ngIf="userId" [routerLink]="['/profile', userId]">Perfil</a>
+      <a *ngIf="userId" [routerLink]="['/profile', userId]">{{user.username}}</a>
       <a *ngIf="!userId" [routerLink]="['/login']" >Perfil</a>
     </li>
     <li>

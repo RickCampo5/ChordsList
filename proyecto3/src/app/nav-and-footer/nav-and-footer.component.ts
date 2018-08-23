@@ -17,7 +17,7 @@ export class NavAndFooterComponent implements OnInit {
   ) { }
 
   obj: any = {}
-  // userId = false
+  user:any ={}
   userId = JSON.parse(localStorage.getItem('userId'))
   chords = {}
 
@@ -33,10 +33,10 @@ export class NavAndFooterComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.chordsService.getUser(this.user)
-    // .subscribe(user=>{
-    //   this.userId = true
-    // })
+    this.chordsService.getUser(this.userId)
+    .subscribe(user=>{
+      this.user = user
+    })
   }
 
 }

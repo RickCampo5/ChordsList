@@ -26,6 +26,7 @@ export class ListDetailComponent implements OnInit {
   url = window.location.href
   searchText:String
   user:any = {}
+  inList = false
 
   editList(){
     this.edit = true
@@ -90,6 +91,13 @@ export class ListDetailComponent implements OnInit {
       this.listService.getOneList(this.id)
       .subscribe(list=>{
         this.list = list
+        this.chordService.getUser(this.userId)
+    .subscribe(user=>{
+      this.user = user
+      this.user.myLists.forEach(elem=>{
+        if(this.list._id == elem) this.inList = true
+      })
+    })
       })
     })
 
@@ -98,10 +106,7 @@ export class ListDetailComponent implements OnInit {
       this.chords = chords
     })
 
-    this.chordService.getUser(this.userId)
-    .subscribe(user=>{
-      this.user = user
-    })
+    
   }
 
 }

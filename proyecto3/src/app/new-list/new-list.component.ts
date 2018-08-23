@@ -40,6 +40,9 @@ export class NewListComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    if(!this.userId) this.router.navigate(['login'])
+
     this.chordsService.getAllChords()
       .subscribe(chords=>{
         this.chords = chords

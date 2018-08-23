@@ -3,11 +3,13 @@ section{
   flex-direction: row;
   justify-content: space-evenly;
   min-height: 500px;
+  width: 100vw;
 }
 .card{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 300px;
 }
 
 #form{

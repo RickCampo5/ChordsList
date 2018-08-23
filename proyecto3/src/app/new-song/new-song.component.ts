@@ -41,6 +41,7 @@ export class NewSongComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(!this.userId) this.router.navigate(["login"])
   }
 
 }
