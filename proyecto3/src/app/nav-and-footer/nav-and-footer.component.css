@@ -65,5 +65,19 @@ h5{
 p{
   font-size: 0.9em;
 }
+.logo{
+  display: none;
+}
 
-
+@media screen and (max-width: 600px){
+  .logo{
+    display: inherit;
+  }
+  img{
+    width: 50px;
+    height: 50px;
+  }
+  .full-logo{
+    display: none;
+  }
+}

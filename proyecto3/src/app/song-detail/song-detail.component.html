@@ -25,11 +25,8 @@
         <input type="text" name="title" [(ngModel)]="chord.title">
         <input  type="text" name="author" [(ngModel)]="chord.author" >
         <input  type="text" name="key" [(ngModel)]="chord.key" >
-        <div>
-          <input type="file" name="audioURL" (change)="onFileChange($event)">
-          <span> ó </span>
-          <input type="text" name="ytURL" [(ngModel)]="chord.ytURL" >
-        </div>
+        <input type="file" name="audioURL" (change)="onFileChange($event)">
+        <input type="text" name="ytURL" [(ngModel)]="chord.ytURL" >
         <textarea [(ngModel)]="chord.partiture" name="partiture"></textarea>
         <button (click)="saveSong()" >Guardar Canción</button>
         <button (click)="cancel()" >Cancel</button>

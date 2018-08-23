@@ -22,8 +22,9 @@ export class NavAndFooterComponent implements OnInit {
   chords = {}
 
 
-  search(){
-    this.router.navigate(['chords', this.obj.regex])
+  sideNav(){
+    const nav = document.getElementById("sideNav")
+    nav.style.display = "inherit"
   }
 
   logout(){

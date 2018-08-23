@@ -57,3 +57,29 @@ button{
   position: fixed;
   max-width: 200px;
 }
+
+@media screen and (max-width:600px){
+  section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    width: 100vw;
+  }
+  .btn-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    max-width: 200px;
+  }
+  textarea{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 1em;
+    width: 200px;
+    height: 100px;
+  }
+}

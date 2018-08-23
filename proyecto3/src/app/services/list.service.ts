@@ -8,8 +8,8 @@ import {map} from 'rxjs/operators'
 })
 export class ListService {
 
-  url="http://localhost:3000/apilists/"
-  // url = '/apilists/'
+  // url="http://localhost:3000/apilists/"
+  url = '/apilists/'
   lists = []
 
   constructor(

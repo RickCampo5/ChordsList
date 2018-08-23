@@ -40,3 +40,21 @@ textarea{
   height: 60px;
   font-size: 1em;
 }
+
+@media screen and (max-width: 600px){
+  section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    max-height: 1000px;
+  }
+  textarea{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 1em;
+    width: 200px;
+    height: 100px;
+  }
+}

@@ -35,3 +35,13 @@ input{
     height: 30px;
     font-size: 1em;
   }
+
+  @media screen and (max-width: 600px){
+    textarea{
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-size: 1em;
+      width: 200px;
+      height: 100px;
+    }
+  }

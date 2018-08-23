@@ -1,15 +1,17 @@
 <nav>
-  <a *ngIf="!userId" [routerLink]="['/login']">
+  <a class="full-logo"  *ngIf="!userId" [routerLink]="['/login']">
     <img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1533663461/ChordList/stencil.default.png" alt="Music Chord List">
   </a>
-  <a *ngIf="userId" [routerLink]="['/profile', userId]">
+  <a class="full-logo"  *ngIf="userId" [routerLink]="['/profile', userId]">
     <img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1533663461/ChordList/stencil.default.png" alt="Music Chord List">
   </a>
-  <!-- <div>
-    <input [(ngModel)]="obj.regex" type="text" placeholder="¿Qué canción buscas?">
-    <button (click)="search()" >Buscar</button>
-  </div> -->
-  <ul>
+  <a class="logo" *ngIf="!userId" [routerLink]="['/login']">
+    <img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1533667220/ChordList/stencil.blog-post-image.png" alt="Chord List Logo">
+  </a>
+  <a class="logo" *ngIf="userId" [routerLink]="['/profile', userId]">
+      <img src="https://res.cloudinary.com/dfjzvlip6/image/upload/v1533667220/ChordList/stencil.blog-post-image.png" alt="Chord List Logo">
+  </a>
+  <ul class="navFull">
     <li>
       <a *ngIf="userId" [routerLink]="['/profile', userId]">{{user.username}}</a>
       <a *ngIf="!userId" [routerLink]="['/login']" >Perfil</a>
