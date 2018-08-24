@@ -10,8 +10,12 @@ import {AuthService} from '../services/auth.service'
 export class AuthComponent implements OnInit {
 
   isLogged = true
-  auth = {}
+  auth:any = {}
   user: any = {}
+  pass = false
+  emailAcc = false
+  created = false
+  
 
   constructor(
     private authService: AuthService,
@@ -19,11 +23,35 @@ export class AuthComponent implements OnInit {
   ) { }
 
   signup(){
-    this.authService.signup(this.auth)
-    .subscribe(user=>{
-      this.user = user
-      this.router.navigate(['profile', this.user._id])
-    })
+    if(this.pass && this.emailAcc){
+      this.authService.signup(this.auth)
+      .subscribe(user=>{
+        this.user = user
+        this.created = true
+        this.isLogged = true
+      })
+    }
+  }
+
+  confirmation(){
+    const passwordError = document.getElementById("passwordError")
+    const emailError = document.getElementById("emailError")
+    if(this.auth.email.indexOf("@") != -1 ) {
+      emailError.style.display = "none"
+      this.emailAcc = true
+    }
+    if(this.auth.email.indexOf("@") == -1){
+      emailError.style.display = "inherit"
+      this.emailAcc = false
+    }
+    if (this.auth.password.length < 6) {
+      passwordError.style.display = "inherit"
+      this.pass = false
+    } 
+    if(this.auth.password.length >= 6) {
+      passwordError.style.display = "none"
+      this.pass = true
+    }
   }
 
   login(){

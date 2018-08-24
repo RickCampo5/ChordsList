@@ -1,5 +1,6 @@
 <app-nav-and-footer></app-nav-and-footer>
 <section id="container">
+  <p *ngIf="created == true" id="createdUser">Usuario Creado</p>
     <form ngNativeValidate *ngIf="isLogged" class="card">
       <h2>Inicia Sesión</h2>
       <input  name="email" required [(ngModel)]="auth.email" type="email" placeholder="Correo">
@@ -10,8 +11,10 @@
     <form ngNativeValidate *ngIf="!isLogged" class="card">
       <h2>Registrate</h2>
       <input required name="username" [(ngModel)]="auth.username" type="text" placeholder="Usuario">
-      <input required name="email" [(ngModel)]="auth.email" type="email" placeholder="Correo"> 
-      <input required name="password" [(ngModel)]="auth.password" type="password" placeholder="Contraseña">
+      <input required (keydown)="confirmation()" name="email" [(ngModel)]="auth.email" type="email" placeholder="Correo"> 
+      <input required (keydown)="confirmation()" name="password" [(ngModel)]="auth.password" type="password" placeholder="Contraseña">
+      <p id="passwordError">La contraseña debe tener minimo 6 caracteres</p>
+      <p id="emailError">Introduce un Email valido</p>
       <button (click)="signup()">Crear</button>
       <p>Ya tienes cuenta? <span (click)="isLogged=true" >Click aquí</span></p>
     </form>
