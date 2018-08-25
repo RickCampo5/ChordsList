@@ -1,6 +1,7 @@
 <app-nav-and-footer></app-nav-and-footer>
 <section id="container">
   <p *ngIf="created == true" id="createdUser">Usuario Creado</p>
+  <p id="err">Contraseña o Email Incorrectos</p>
     <form ngNativeValidate *ngIf="isLogged" class="card">
       <h2>Inicia Sesión</h2>
       <input  name="email" required [(ngModel)]="auth.email" type="email" placeholder="Correo">

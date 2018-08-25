@@ -17,7 +17,7 @@ export class NavAndFooterComponent implements OnInit {
   ) { }
 
   obj: any = {}
-  user:any ={}
+  user = JSON.parse(localStorage.getItem('user'))
   userId = JSON.parse(localStorage.getItem('userId'))
   chords = {}
 
@@ -29,17 +29,10 @@ export class NavAndFooterComponent implements OnInit {
 
   logout(){
     this.auth.logout();
-    // this.userId = false
     this.router.navigate(['chords/'])
   }
 
   ngOnInit() {
-    this.chordsService.getUser(this.userId)
-    .subscribe(user=>{
-      this.user = user
-    })
+    
   }
-
 }
-
-// 

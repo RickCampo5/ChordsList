@@ -16,7 +16,7 @@ export class SearchComponent implements OnInit {
 
   searchText: String;
 
-  chords = {}
+  chords = []
 
   ngOnInit() {
     this.chordsService.getAllChords()

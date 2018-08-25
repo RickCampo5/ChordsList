@@ -62,7 +62,11 @@ export class AuthComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(user))
       localStorage.setItem('userId', JSON.stringify(userId))
       this.router.navigate(['profile', this.user._id])
+    },(err)=>{
+      var error = document.getElementById('err')
+      error.style.display = "inherit"
     })
+    
   }
 
   ngOnInit() {

@@ -23,6 +23,11 @@ span{
   text-decoration: underline;
 }
 
+#err{
+  display: none;
+  color: red;
+}
+
 #passwordError{
   display: none;
   color: red;
