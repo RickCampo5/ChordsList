@@ -3,9 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 500px;
-  margin-top: 20px;
+  min-height: 600px;
 }
 
 .card{
@@ -13,8 +11,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: #9c33ff; */
-  width: 500px;
   height: 300px;
   border-radius: 50px;
 }
@@ -56,4 +52,14 @@ button{
   width: 100px;
   min-height: 30px;
   font-size: 1em;
+}
+
+@media screen and (min-width: 1024px){
+  #container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 550px;
+  }
 }
